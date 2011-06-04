@@ -1,7 +1,5 @@
 prefix=/usr/local
 LIBPATH=$(prefix)/lib
 
-LIBS+=$(LIBPATH)/libboost_regex-mt.a
-
 all:
-	g++ -O main.cpp -o main.bin $(LIBS)
+	g++ -O main.cpp -o main.bin
