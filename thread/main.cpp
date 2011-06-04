@@ -10,16 +10,21 @@ void a(){
   }
 }
 
-void b(){
+void b(int sec){
   while(true){
-    sleep(3);
-    cout << "b" << endl;
+    sleep(sec);
+    cout << "b (" << sec << " sec)" << endl;
   }
 }
  
 int main(int argc, char* argv[]){
-  thread th_a(&a);
-  thread th_b(&b);
+  if(argc < 2){
+    cout << "main.bin 5" << endl;
+    return 1;
+  }
+  int sec = atoi(argv[1]);
+  thread th_a(a);
+  thread th_b(b, sec);
 
   th_a.join();
   th_b.join();
